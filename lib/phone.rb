@@ -1,12 +1,12 @@
 class Phone
-  attr_reader(:area_code, :number, :type, :id)
+  attr_reader(:area_code, :number, :type)#, :id)
   @@Phone_numbers = []
 
   def initialize (digits)
     @area_code = digits.fetch(:area_code)
     @number = digits.fetch(:number)
     @type = digits.fetch(:type)
-    @id = @@Phone_numbers.length() + 1
+#    @id = @@Phone_numbers.length() + 1
   end
 
   define_singleton_method(:all) do

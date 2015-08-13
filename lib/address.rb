@@ -1,5 +1,5 @@
 class Address
-  attr_reader(:street, :city, :state, :zip, :type, :id)
+  attr_reader(:street, :city, :state, :zip, :type)#, :id)
   @@Addresses = []
 
   def initialize (address)
@@ -8,7 +8,7 @@ class Address
     @state = address.fetch(:state)
     @zip = address.fetch(:zip)
     @type = address.fetch(:type)
-    @id = @@Addresses.length() + 1
+#    @id = @@Addresses.length() + 1
   end
 
   define_singleton_method(:all) do
