@@ -3,8 +3,11 @@ require('email')
 
 describe(Email) do
   before() do
+    Email.clear()
     @vaughns_email = Email.new({:address=>'vaughn@personal.com', :type=>'personal'})
+    @vaughns_email.save()
     @andrews_email = Email.new({:address=>'andrew@work.com', :type=>'work'})
+    @andrews_email.save()
   end
 
   describe('#address') do
@@ -19,24 +22,26 @@ describe(Email) do
     end
   end
 
-  describe(".all") do
-    it('starts out empty') do
-      expect(Email.all()).to(eq([]))
+  describe('#id') do
+    it('returns the unique id of an email address') do
+      expect(@andrews_email.id()).to(eq(2))
     end
   end
 
+  # describe(".all") do
+  #   it('starts out empty') do
+  #     expect(Email.all()).to(eq([]))
+  #   end
+  # end
+
   describe("#save") do
     it('returns all email addresses') do
-      @vaughns_email.save()
-      @andrews_email.save()
       expect(Email.all()).to(eq([@vaughns_email, @andrews_email]))
     end
   end
 
   describe('.clear') do
     it('clears all email addresses') do
-      @vaughns_email.save()
-      @andrews_email.save()
       Email.clear()
       expect(Email.all()).to(eq([]))
     end

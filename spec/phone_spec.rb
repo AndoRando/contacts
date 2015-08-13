@@ -3,10 +3,15 @@ require('phone')
 
 describe(Phone) do
   before() do
+    Phone.clear()
     @vaughns_phone_number = Phone.new({:area_code=>'303', :number=>'3333333', :type=>'cell'})
+    @vaughns_phone_number.save()
     @andrews_phone_number = Phone.new({:area_code=>'404', :number=>'4444444', :type=>'fax'})
+    @andrews_phone_number.save()
     @sallys_phone_number = Phone.new({:area_code=>'505', :number=>'5555555', :type=>'home'})
+    @sallys_phone_number.save()
     @roberts_phone_number = Phone.new({:area_code=>'606', :number=>'6666666', :type=>'emergency'})
+    @roberts_phone_number.save()
   end
 
   describe('#area_code') do
@@ -27,28 +32,26 @@ describe(Phone) do
     end
   end
 
-  describe(".all") do
-    it('starts out empty') do
-      expect(Phone.all()).to(eq([]))
+  describe('#id') do
+    it('returns the unique ID of a phone number') do
+      expect(@roberts_phone_number.id()).to(eq(4))
     end
   end
 
+  # describe(".all") do
+  #   it('starts out empty') do
+  #     expect(Phone.all()).to(eq([]))
+  #   end
+  # end
+
   describe("#save") do
     it('returns all phone numbers') do
-      @vaughns_phone_number.save()
-      @andrews_phone_number.save()
-      @sallys_phone_number.save()
-      @roberts_phone_number.save()
       expect(Phone.all()).to(eq([@vaughns_phone_number, @andrews_phone_number, @sallys_phone_number, @roberts_phone_number]))
     end
   end
 
   describe('.clear') do
     it('clears all phone numbers') do
-      @vaughns_phone_number.save()
-      @andrews_phone_number.save()
-      @sallys_phone_number.save()
-      @roberts_phone_number.save()
       Phone.clear()
       expect(Phone.all()).to(eq([]))
     end

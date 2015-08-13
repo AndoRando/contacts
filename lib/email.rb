@@ -1,10 +1,11 @@
 class Email
-  attr_reader(:address, :type)
+  attr_reader(:address, :type, :id)
   @@Emails = []
 
   def initialize (attributes)
     @address = attributes.fetch(:address)
     @type = attributes.fetch(:type)
+    @id = @@Emails.length() + 1
   end
 
   define_singleton_method(:all) do
