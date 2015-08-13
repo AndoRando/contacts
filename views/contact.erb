@@ -1,0 +1,34 @@
+<h1>Details</h1>
+
+<div class="address">
+  <p>
+    <%= @street %>
+  </p>
+  <p>
+    <%= @city + ", " + @state %>
+  </p>
+  <p>
+    <%= @zip %>
+  </p>
+  <p>
+    <%= @address_type %>
+  </p>
+</div>
+
+<div class="phone">
+  <p>
+    <%= "(" + @area_code + ") " + (@number.insert(3, '-')) %>
+  </p>
+  <p>
+    <%= @phone_type %>
+  </p>
+</div>
+
+<div class="email">
+  <p>
+    <%= @email %>
+  </p>
+  <p>
+    <%= @email_type %>
+  </p>
+</div>
