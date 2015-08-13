@@ -27,6 +27,18 @@ describe(Contact) do
     end
   end
 
+  describe('#address') do
+    it('return the address of a contact') do
+      expect(@andrew.address()).to(eq($andrews_address))
+    end
+  end
+
+  describe('#phone') do
+    it('return the phone number of a contact') do
+      expect(@andrew.phone()).to(eq($andrews_phone_number))
+    end
+  end
+
   describe('#email') do
     it('return the email of a contact') do
       expect(@andrew.email()).to(eq($andrews_email))

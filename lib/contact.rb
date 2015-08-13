@@ -5,7 +5,7 @@ class Contact
   def initialize (info)
     @name = info.fetch(:name)
     @address = info.fetch(:address)
-    @phone_number = info.fetch(:phone)
+    @phone = info.fetch(:phone)
     @email = info.fetch(:email)
     @id = @@Contacts.length().+(1)
   end
@@ -22,11 +22,13 @@ class Contact
     @@Contacts.clear()
   end
 
-  # def address
-  # end
+  def address
+    @address
+  end
 
-  # def phone
-  # end
+  def phone
+    @phone
+  end
 
   def email
     @email
