@@ -2,33 +2,33 @@
 
 <div class="address">
   <p>
-    <%= @street %>
+    <%= @contact.address().street() %>
   </p>
   <p>
-    <%= @city + ", " + @state %>
+    <%= "#{@contact.address().city}, #{@contact.address().state}" %>
   </p>
   <p>
-    <%= @zip %>
+    <%= @contact.address().zip %>
   </p>
   <p>
-    <%= @address_type %>
+    <%= @contact.address().type %>
   </p>
 </div>
 
 <div class="phone">
   <p>
-    <%= "(" + @area_code + ") " + (@number.insert(3, '-')) %>
+    <%= "(#{@contact.phone().area_code}) #{@contact.phone().number.insert(3, '-')}" %>
   </p>
   <p>
-    <%= @phone_type %>
+    <%= @contact.phone().type %>
   </p>
 </div>
 
 <div class="email">
   <p>
-    <%= @email %>
+    <%= @contact.email().address %>
   </p>
   <p>
-    <%= @email_type %>
+    <%= @contact.email().type %>
   </p>
 </div>

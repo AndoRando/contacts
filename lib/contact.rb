@@ -34,4 +34,14 @@ class Contact
     @email
   end
 
+  define_singleton_method(:find) do |id|
+    found_contact = nil
+    @@Contacts.each() do |contact|
+      if contact.id().eql?(id)
+        found_contact = contact
+      end
+    end
+    found_contact
+  end
+
 end

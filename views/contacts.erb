@@ -4,6 +4,8 @@
 
 <ul>
   <% @Contacts.each() do |contact| %>
-    <li><a href="/contact/<%= contact.id() %>"><%= contact.name() %></a></li>
+    <li><a href="/contacts/<%= contact.id() %>"><%= contact.name() %></a></li>
   <% end %>
 </ul>
+
+<a href="/">Back to Homepage</a>
