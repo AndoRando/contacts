@@ -26,4 +26,31 @@ describe(Phone) do
       expect(@andrews_phone_number.type()).to(eq('fax'))
     end
   end
+
+  describe(".all") do
+    it('starts out empty') do
+      expect(Phone.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it('returns all phone numbers') do
+      @vaughns_phone_number.save()
+      @andrews_phone_number.save()
+      @sallys_phone_number.save()
+      @roberts_phone_number.save()
+      expect(Phone.all()).to(eq([@vaughns_phone_number, @andrews_phone_number, @sallys_phone_number, @roberts_phone_number]))
+    end
+  end
+
+  describe('.clear') do
+    it('clears all phone numbers') do
+      @vaughns_phone_number.save()
+      @andrews_phone_number.save()
+      @sallys_phone_number.save()
+      @roberts_phone_number.save()
+      Phone.clear()
+      expect(Phone.all()).to(eq([]))
+    end
+  end
 end
