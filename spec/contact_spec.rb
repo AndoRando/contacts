@@ -27,4 +27,10 @@ describe(Contact) do
     end
   end
 
+  describe('#email') do
+    it('return the email of a contact') do
+      expect(@andrew.email()).to(eq($andrews_email))
+    end
+  end
+
 end

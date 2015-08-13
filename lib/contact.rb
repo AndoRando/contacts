@@ -4,9 +4,9 @@ class Contact
 
   def initialize (info)
     @name = info.fetch(:name)
-    @email = info.fetch(:email)
     @address = info.fetch(:address)
     @phone_number = info.fetch(:phone)
+    @email = info.fetch(:email)
     @id = @@Contacts.length().+(1)
   end
 
@@ -21,4 +21,15 @@ class Contact
   define_singleton_method(:clear) do
     @@Contacts.clear()
   end
+
+  # def address
+  # end
+
+  # def phone
+  # end
+
+  def email
+    @email
+  end
+
 end
