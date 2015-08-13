@@ -14,4 +14,55 @@ describe(Address) do
       expect(@vaughns_address.street()).to(eq("123 Sesame Street"))
     end
   end
+
+  describe('#city') do
+    it('returns the city') do
+      expect(@andrews_address.city()).to(eq("Mountain View"))
+    end
+  end
+
+  describe('#state') do
+    it('returns the state') do
+      expect(@epicodus_address.state()).to(eq("OR"))
+    end
+  end
+
+  describe('#zip') do
+    it('returns the zip code') do
+      expect(@mt_rushmore_address.zip()).to(eq("57751"))
+    end
+  end
+
+  describe('#type') do
+    it('returns the type of address') do
+      expect(@andrews_address.type()).to(eq("mothership"))
+    end
+  end
+
+  describe(".all") do
+    it('starts out empty') do
+      expect(Address.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it('returns all addresses') do
+      @mt_rushmore_address.save()
+      @epicodus_address.save()
+      @andrews_address.save()
+      @vaughns_address.save()
+      expect(Address.all()).to(eq([@mt_rushmore_address, @epicodus_address, @andrews_address, @vaughns_address]))
+    end
+  end
+
+  describe('.clear') do
+    it('clears all addresses') do
+      @mt_rushmore_address.save()
+      @epicodus_address.save()
+      @andrews_address.save()
+      @vaughns_address.save()
+      Address.clear()
+      expect(Address.all()).to(eq([]))
+    end
+  end
 end

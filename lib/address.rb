@@ -9,4 +9,16 @@ class Address
     @zip = address.fetch(:zip)
     @type = address.fetch(:type)
   end
+
+  define_singleton_method(:all) do
+    @@Addresses
+  end
+
+  define_singleton_method(:clear) do
+    @@Addresses.clear()
+  end
+
+  def save
+    @@Addresses.push(self)
+  end
 end
